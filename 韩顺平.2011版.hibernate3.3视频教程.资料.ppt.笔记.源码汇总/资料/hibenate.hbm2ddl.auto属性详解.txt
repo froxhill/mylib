@@ -1,0 +1,8 @@
+<property name="hbm2ddl.auto">create</property>
+     hbm2ddl.auto其中有四个属性分别有validate，update，create，create-drop。
+在sessionFactory 建立的时候自动检查数据库表结构，或者将数据库schema的DDL导到数据库中，
+
+使用create-drop时，在显示关闭 sessionFactory时，将drop掉数据库的schema，
+create顾名思义，每次都会根据映射文件创建新表.
+update是数据库中表已经存在了，如果配置文件改变了（增加了一个属性，相当于再数据库中加了一个字段）那么update会自动在数据库中加上这个字段，
+validate相当于每次插入数据之前都会验证数据库中的表结构和hbm文件的结构是否一致

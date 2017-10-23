@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <!-- 配置驱动 -->
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="connection.url">jdbc:oracle:thin:@127.0.0.1:1521:orclsp</property>
+        <property name="connection.username">scott</property>
+        <property name="connection.password">tiger</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <!-- 连接池默认配置.提供对数据库操作速度 -->
+        <property name="connection.pool_size">2</property>
+
+        <!-- SQL dialect -->
+        <!-- 配置方言. -->
+        <property name="dialect">org.hibernate.dialect.OracleDialect</property>
+
+        <!-- Enable Hibernate's current session context -->
+        <!-- 使用会话工厂 thread 则可以使用getCurrentSession(); -->
+        <property name="current_session_context_class">thread</property>
+
+      
+        <!-- Echo all executed SQL to stdout -->
+      	<!-- 是否要在后台.演示翻译sql 语句 -->
+        <property name="show_sql">false</property>
+
+      
+		<!-- 指定对象关系映射文件 -->
+        <mapping resource="com/test/Users.hbm.xml"/>
+       
+
+    </session-factory>
+
+</hibernate-configuration>
+

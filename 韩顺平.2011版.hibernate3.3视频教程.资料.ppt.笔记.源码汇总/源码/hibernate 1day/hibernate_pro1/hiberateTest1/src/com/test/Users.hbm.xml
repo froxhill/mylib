@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
+        'http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd'>
+<!-- 这是一个对象关系映射文件User和users关联 -->
+<hibernate-mapping package="com.test" >
+
+    <class name="Users" table="users">
+	<!-- 配置主键属性 -->
+        <id name="userId" type="java.lang.Integer" column="userid">
+            <generator class="sequence" >
+            <param name="sequence">SEQ_TEST</param>
+            </generator>
+        </id>
+
+        <property name="name" type="java.lang.String" >
+            <column name="userName"   not-null="true"/>
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="sex" />
+        </property>
+        <property name="age" type="java.lang.Integer">
+            <column name="age" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" />
+        </property>
+
+        <property name="regDate" type="java.util.Date">
+            <column name="regDate" />
+        </property>
+
+    </class>
+
+</hibernate-mapping>

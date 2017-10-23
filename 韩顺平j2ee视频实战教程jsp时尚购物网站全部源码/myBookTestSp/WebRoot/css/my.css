@@ -1,0 +1,26 @@
+.navi {
+	font-family: "新宋体";
+	font-size: 9pt;
+	background-color: #99CC33;
+}
+.comm {
+	font-family: "新宋体";
+	font-size: 9pt;
+}
+.com {
+	font-family: "新宋体";
+	font-size: 9pt;
+}
+.mycopy {
+	font-family: "新宋体";
+	font-size: 9pt;
+	border-top-width: thick;
+	border-right-width: thin;
+	border-left-width: thin;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #CCCCCC;
+	border-right-color: #CCCCCC;
+	border-left-color: #CCCCCC;
+}

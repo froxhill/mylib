@@ -1,0 +1,87 @@
+BODY {
+	MARGIN: 0px
+}
+.top {
+	BACKGROUND-IMAGE: url(http://images.51cto.com/images/art/top_images/top_bg.gif); BACKGROUND-REPEAT: repeat-x; FONT-FAMILY: "ËÎÌו"; HEIGHT: 35px; FONT-SIZE: 12px
+}
+.top_nav {
+	WIDTH: 960px; HEIGHT: 35px; MARGIN-LEFT: auto; MARGIN-RIGHT: auto
+}
+.top_nav_logo {
+	WIDTH: 222px; BACKGROUND: url(http://images.51cto.com/images/art/top_images/top_logo.gif) #fff; FLOAT: left; HEIGHT: 35px
+}
+.top_nav_r {
+	TEXT-ALIGN: right; WIDTH: 700px; FLOAT: right; COLOR: #696969; PADDING-TOP: 15px
+}
+.top_nav_r A {
+	PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; COLOR: #696969; TEXT-DECORATION: none; PADDING-TOP: 2px
+}
+.top_nav_r A:hover {
+	BACKGROUND: #4a4a4a; COLOR: #fff; TEXT-DECORATION: none
+}
+.top_nav_r LI {
+	FLOAT: right
+}
+.top_nav_r1 {
+	BACKGROUND-IMAGE: url(http://images.51cto.com/images/art/top_images/nav_ico1.gif); WIDTH: 100px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: right 50%
+}
+.top_nav_r1 A {
+	PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; WIDTH: 100px; PADDING-RIGHT: 8px; COLOR: #696969; TEXT-DECORATION: none; PADDING-TOP: 2px
+}
+.top_nav_r1 A:hover {
+	WIDTH: 100px; BACKGROUND: #4a4a4a; COLOR: #fff; TEXT-DECORATION: none
+}
+.subMenu1 {
+	BORDER-BOTTOM: #cecece 1px solid; POSITION: absolute; TEXT-ALIGN: center; BORDER-LEFT: #cecece 1px solid; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 4px; WIDTH: 60px; PADDING-RIGHT: 4px; DISPLAY: none; BORDER-TOP: #cecece 1px solid; TOP: 116px; BORDER-RIGHT: #cecece 1px solid; PADDING-TOP: 0px; LEFT: 812px
+}
+.subMenu2 {
+	BORDER-BOTTOM: #cecece 1px solid; POSITION: absolute; TEXT-ALIGN: center; BORDER-LEFT: #cecece 1px solid; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 4px; WIDTH: 60px; PADDING-RIGHT: 4px; DISPLAY: none; BORDER-TOP: #cecece 1px solid; TOP: 116px; BORDER-RIGHT: #cecece 1px solid; PADDING-TOP: 0px; LEFT: 883px
+}
+.subMenu3 {
+	BORDER-BOTTOM: #cecece 1px solid; POSITION: absolute; TEXT-ALIGN: center; BORDER-LEFT: #cecece 1px solid; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 4px; WIDTH: 60px; PADDING-RIGHT: 4px; DISPLAY: none; BORDER-TOP: #cecece 1px solid; TOP: 116px; BORDER-RIGHT: #cecece 1px solid; PADDING-TOP: 0px; LEFT: 883px
+}
+.subMenu1 A {
+	TEXT-ALIGN: left; LINE-HEIGHT: 18px; WIDTH: 53px; DISPLAY: block; HEIGHT: 17px; COLOR: #000; TEXT-DECORATION: none; PADDING-TOP: 1px
+}
+.subMenu1 A.lcnew {
+	TEXT-DECORATION: none
+}
+.subMenu1 A:hover {
+	BACKGROUND-IMAGE: url(http://images.51cto.com/images/art/images/nav_bg1.gif); BACKGROUND-REPEAT: no-repeat; COLOR: #c00; TEXT-DECORATION: none
+}
+.subMenu1 UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.subMenu1 LI {
+	LIST-STYLE-TYPE: none; PADDING-LEFT: 8px; BACKGROUND: url(http://images.51cto.com/images/art/images/dt.gif) no-repeat left 50%; FONT-SIZE: 12px; PADDING-TOP: 1px
+}
+.subMenu2 A {
+	TEXT-ALIGN: left; LINE-HEIGHT: 18px; WIDTH: 53px; DISPLAY: block; HEIGHT: 17px; COLOR: #000; TEXT-DECORATION: none; PADDING-TOP: 1px
+}
+.subMenu2 A.lcnew {
+	TEXT-DECORATION: none
+}
+.subMenu2 A:hover {
+	BACKGROUND-IMAGE: url(http://images.51cto.com/images/art/images/nav_bg1.gif); BACKGROUND-REPEAT: no-repeat; COLOR: #c00; TEXT-DECORATION: none
+}
+.subMenu2 UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.subMenu2 LI {
+	LIST-STYLE-TYPE: none; PADDING-LEFT: 8px; BACKGROUND: url(http://images.51cto.com/images/art/images/dt.gif) no-repeat left 50%; FONT-SIZE: 12px; PADDING-TOP: 1px
+}
+.subMenu3 A {
+	TEXT-ALIGN: left; LINE-HEIGHT: 18px; WIDTH: 53px; DISPLAY: block; HEIGHT: 17px; COLOR: #000; TEXT-DECORATION: none; PADDING-TOP: 1px
+}
+.subMenu3 A.lcnew {
+	TEXT-DECORATION: none
+}
+.subMenu3 A:hover {
+	BACKGROUND-IMAGE: url(http://images.51cto.com/images/art/images/nav_bg1.gif); BACKGROUND-REPEAT: no-repeat; COLOR: #c00; TEXT-DECORATION: none
+}
+.subMenu3 UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.subMenu3 LI {
+	LIST-STYLE-TYPE: none; PADDING-LEFT: 8px; BACKGROUND: url(http://images.51cto.com/images/art/images/dt.gif) no-repeat left 50%; FONT-SIZE: 12px; PADDING-TOP: 1px
+}

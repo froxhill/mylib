@@ -1,0 +1,742 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0034)http://www.javaeye.com/topic/20216 -->
+<HTML dir=ltr xml:lang="zh-CN" 
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>讨论：用DAO模式有什么好处？ - DAO - Java - JavaEye论坛</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=description 
+content="把常见的持久化操作CRUD封装在一个接口Persistence并用Hibernate实现不可以么，为什么非要多了DAO这么麻烦，相比上面的方案有什么好处么？ interface: PersistenceManager impl class: HibernatePersistenceManager (implements PersistenceManager) 然后其它业务类调用Persistence ...">
+<META name=keywords content=" DAO Java"><LINK rel="shortcut icon" 
+type=image/x-icon href="/images/favicon.ico"><LINK title=JavaEye论坛 rel=alternate 
+type=application/rss+xml href="/rss/board/Java"><LINK rel=stylesheet 
+type=text/css 
+href="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/forum.css" 
+media=screen>
+<SCRIPT type=text/javascript 
+src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/application.js"></SCRIPT>
+<LINK rel=stylesheet type=text/css 
+href="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/SyntaxHighlighter.css" 
+media=screen>
+<SCRIPT type=text/javascript 
+src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/shCoreCommon.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/hotkey.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/dragdrop.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 8.00.6001.18876"></HEAD>
+<BODY>
+<DIV id=page>
+<DIV id=header>
+<DIV class=clearfix>
+<DIV id=user_nav><A class=welcome title=登录 
+href="http://www.javaeye.com/login">您还未登录 !</A> <A style="COLOR: red" 
+href="http://www.javaeye.com/all">我的应用</A> <A 
+href="http://www.javaeye.com/login">登录</A> <A class=nobg 
+href="http://www.javaeye.com/signup">注册</A> </DIV></DIV>
+<DIV class=clearfix>
+<DIV id=branding><A href="http://www.javaeye.com/"><IMG 
+title=JavaEye-最棒的软件开发交流社区 alt=JavaEye-最棒的软件开发交流社区 
+src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/logo.gif"></A> 
+</DIV>
+<DIV id=gg><A href="http://www.javaeye.com/clicks/294" target=_blank><IMG 
+src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/msup.gif"></A></DIV></DIV></DIV>
+<DIV id=content class=clearfix>
+<DIV id=main>
+<DIV class=clearfix>
+<DIV class=crumbs><A href="http://www.javaeye.com/forums">论坛首页</A> <SPAN 
+class=arrow>→</SPAN> <A 
+href="http://www.javaeye.com/forums/board/Java">Java编程和Java企业应用版</A> <SPAN 
+class=arrow>→</SPAN> <A href="http://www.javaeye.com/forums/tag/DAO">DAO</A> 
+<SPAN class=arrow>→</SPAN> 
+<H1>讨论：用DAO模式有什么好处？</H1></DIV></DIV>
+<DIV id=forum_tag_list><A href="http://www.javaeye.com/forums/board/Java">全部</A> 
+<A href="http://www.javaeye.com/forums/tag/Hibernate">Hibernate</A> <A 
+href="http://www.javaeye.com/forums/tag/Spring">Spring</A> <A 
+href="http://www.javaeye.com/forums/tag/Struts">Struts</A> <A 
+href="http://www.javaeye.com/forums/tag/iBATIS">iBATIS</A> <A 
+href="http://www.javaeye.com/forums/tag/J2EE">企业应用</A> <A 
+href="http://www.javaeye.com/forums/tag/Design-Pattern">设计模式</A> <A 
+href="http://www.javaeye.com/forums/tag/DAO">DAO</A> <A 
+href="http://www.javaeye.com/forums/tag/Object-Domain">领域模型</A> <A 
+href="http://www.javaeye.com/forums/tag/OO">OO</A> <A 
+href="http://www.javaeye.com/forums/tag/Tomcat">Tomcat</A> <A 
+href="http://www.javaeye.com/forums/tag/SOA">SOA</A> <A 
+href="http://www.javaeye.com/forums/tag/JBoss">JBoss</A> <A 
+href="http://www.javaeye.com/forums/tag/Swing">Swing</A> <A 
+href="http://www.javaeye.com/forums/tag/Java">Java综合</A> </DIV>
+<DIV class=actions>
+<DIV class=buttons></DIV>
+<DIV class=wrapper>
+<DIV id=forum_recommended_f4></DIV>
+<DIV class=pagination><SPAN class="disabled prev_page">« 上一页</SPAN> <SPAN 
+class=current>1</SPAN> <A href="http://www.javaeye.com/topic/20216?page=2" 
+rel=next>2</A> <A href="http://www.javaeye.com/topic/20216?page=3">3</A> <A 
+href="http://www.javaeye.com/topic/20216?page=4">4</A> <A 
+href="http://www.javaeye.com/topic/20216?page=5">5</A> <A class=next_page 
+href="http://www.javaeye.com/topic/20216?page=2" rel=next>下一页 »</A></DIV>
+<DIV class=info>浏览 47578 次</DIV></DIV></DIV>
+<TABLE id=forum_main cellSpacing=1>
+  <THEAD>
+  <TR>
+    <TH class=topic_title colSpan=2>
+      <DIV class=wrapper><SPAN class=locked>锁定老贴子</SPAN> <A 
+      href="http://www.javaeye.com/topic/20216">主题：讨论：用DAO模式有什么好处？</A></DIV>
+      <DIV id=topic_rate_box><STRONG 
+  class=highlight>该帖已经被评为良好帖</STRONG></DIV></TH></TR>
+  <TR>
+    <TD class=first_col>作者</TD>
+    <TD class=last_col>正文</TD></TR></THEAD>
+  <TBODY id=posts>
+  <TR id=122364>
+    <TD class=postauthor>
+      <UL>
+        <LI class=name>JeffreyHsu 
+        <LI>等级: <IMG title=四星会员 alt=四星会员 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/star4.gif"> 
+
+        <LI><A href="http://jeffreyhsu.javaeye.com/" target=_blank><IMG 
+        class=logo title="JeffreyHsu的博客: The Notes of Dark Mage" 
+        alt=JeffreyHsu的博客 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/3d0fcc08-a09b-46e2-8f64-cbff9a477735.jpg"></A> 
+
+        <LI>文章: 204 
+        <LI>积分: 423 
+        <LI>来自: 合肥 
+        <LI><IMG 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/offline.gif"> 
+        </LI></UL></TD>
+    <TD class=postcontent>
+      <DIV class=postactions>
+      <DIV class=description>&nbsp;&nbsp; 发表时间：2006-05-01&nbsp;&nbsp; </DIV>
+      <DIV class=links></DIV></DIV>
+      <DIV class="postbody clearfix">
+      <SCRIPT type=text/javascript>
+      var hunters = ["\u003Ca href='/jobs/518' target='_blank' style='color:#000;'\u003E\u003Cspan style='font-weight:bold;'\u003E\u5b89\u5fbd: \u003C/span\u003E \u5408\u80a5,\u676d\u5dde,\u82cf\u5dde\uff1a\u8bda\u8058java\u67b6\u6784\u5e08\u003C/a\u003E","\u003Ca href='/jobs/519' target='_blank' style='color:#000;'\u003E\u003Cspan style='font-weight:bold;'\u003E\u5b89\u5fbd: \u003C/span\u003E \u5408\u80a5,\u676d\u5dde,\u82cf\u5dde\uff1a\u8bda\u8058java\u9ad8\u7ea7\u5f00\u53d1\u5de5\u7a0b\u5e08\u003C/a\u003E","\u003Ca href='/jobs/514' target='_blank' style='color:#000;'\u003E\u003Cspan style='font-weight:bold;'\u003E\u5317\u4eac: \u003C/span\u003E \u5317\u4eac\uff1aJava\u4e2d\u95f4\u4ef6\u5f00\u53d1\u5de5\u7a0b\u5e08\u003C/a\u003E","\u003Ca href='/jobs/515' target='_blank' style='color:#000;'\u003E\u003Cspan style='font-weight:bold;'\u003E\u4e0a\u6d77: \u003C/span\u003E \u4e0a\u6d77\uff1a\u5929\u4f1a\u7693\u95fb\u8bda\u8058\u8d44\u6df1Java\u67b6\u6784\u5e08\u003C/a\u003E","\u003Ca href='/jobs/522' target='_blank' style='color:#000;'\u003E\u003Cspan style='font-weight:bold;'\u003E\u4e0a\u6d77: \u003C/span\u003E \u4e0a\u6d77:25---35\u4e07\u5e74\u85aa\u8bda\u8058\u6280\u672f\u7ecf\u7406\u003C/a\u003E"]
+      var hunter_id = Math.ceil(Math.random() * hunters.length) - 1;
+      if(hunter_id == -1) hunter_id = 0;
+    </SCRIPT>
+
+      <DIV 
+      style="BORDER-BOTTOM: #ccc 1px solid; BORDER-LEFT: #ccc 1px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; MARGIN-BOTTOM: 10px; BACKGROUND: #fff; BORDER-TOP: #ccc 1px solid; BORDER-RIGHT: #ccc 1px solid; PADDING-TOP: 4px" 
+      id=hunter_recommended><SPAN style="MARGIN-RIGHT: 5px" id=hunters_nav><A 
+      style="BORDER-BOTTOM: #ccc 1px solid; BORDER-LEFT: #ccc 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; BORDER-TOP: #ccc 1px solid; BORDER-RIGHT: #ccc 1px solid; TEXT-DECORATION: none; PADDING-TOP: 0px; size: 13px" 
+      onclick="hunter_id <= 0 ? hunter_id = hunters.length - 1 : hunter_id--; $('hunters').update(hunters[hunter_id]);return false;" 
+      href="http://www.javaeye.com/topic/20216#">&lt;</A> <A 
+      style="BORDER-BOTTOM: #ccc 1px solid; BORDER-LEFT: #ccc 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; BORDER-TOP: #ccc 1px solid; BORDER-RIGHT: #ccc 1px solid; TEXT-DECORATION: none; PADDING-TOP: 0px; size: 13px" 
+      onclick="hunter_id >= hunters.length - 1 ? hunter_id = 0 : hunter_id++; $('hunters').update(hunters[hunter_id]);return false;" 
+      href="http://www.javaeye.com/topic/20216#">&gt;</A> </SPAN>猎头职位: <SPAN 
+      id=hunters>
+      <SCRIPT type=text/javascript>document.write(hunters[hunter_id]);</SCRIPT>
+      </SPAN></DIV>
+      <DIV id=related_topics>相关文章: <SPAN class=close><A title=关闭 
+      onclick="$('related_topics').hide();if($('hunter_recommended')){$('hunter_recommended').style.width='780px';} return false;" 
+      href="http://www.javaeye.com/topic/20216#">&nbsp;</A></SPAN> 
+      <UL>
+        <LI><A title=服务器端分包结构回顾 href="http://www.javaeye.com/topic/258179" 
+        target=_blank>服务器端分包结构回顾</A> 
+        <LI><A title=如何设计DAO层 href="http://www.javaeye.com/topic/27154" 
+        target=_blank>如何设计DAO层</A> 
+        <LI><A title="有了hibernate是否还需要Dao? " 
+        href="http://www.javaeye.com/topic/150066" 
+        target=_blank>有了hibernate是否还需要Dao? </A></LI></UL><BR><SPAN>推荐圈子: <A 
+      href="http://hibernate.group.javaeye.com/" 
+      target=_blank>Hibernate</A></SPAN> <BR><A 
+      href="http://www.javaeye.com/wiki/topic/20216" target=_blank>更多相关推荐</A> 
+      </DIV>
+      <SCRIPT type=text/javascript>
+                if($('hunter_recommended')) {
+                  $('hunter_recommended').setStyle({cssFloat: 'left', width: '557px'})
+                }
+                new Draggable("related_topics");
+              </SCRIPT>
+      把常见的持久化操作CRUD封装在一个接口Persistence并用Hibernate实现不可以么，为什么非要多了DAO这么麻烦，相比上面的方案有什么好处么？ 
+      <BR><BR>interface: PersistenceManager <BR>impl class: 
+      HibernatePersistenceManager (implements PersistenceManager) 
+      <BR><BR>然后其它业务类调用PersistenceManager来进行业务处理，这样不是很方便 <BR><BR>看到appfuse的代码中： 
+      <BR><PRE class=java name="code">public interface RoleDAO extends DAO {
+    /**
+     * Gets roles information based on login name.
+     * @param rolename the current rolename
+     * @return role populated role object
+     */
+    public Role getRole(String rolename);;
+
+    /**
+     * Gets a list of roles based on parameters passed in.
+     *
+     * @return List populated list of roles
+     */
+    public List getRoles(Role role);;
+
+    /**
+     * Saves a role's information
+     * @param role the object to be saved
+     */
+    public void saveRole(Role role);;
+
+    /**
+     * Removes a role from the database by id
+     * @param rolename the role's rolename
+     */
+    public void removeRole(String rolename);;
+}
+</PRE><BR><BR><PRE class=java name="code">public interface RoleManager {
+
+    public void setRoleDAO(RoleDAO dao);;
+
+    public List getRoles(Role role);;
+
+    public Role getRole(String rolename);;
+
+    public void saveRole(Role role);;
+
+    public void removeRole(String rolename);;
+}
+</PRE><BR><BR>在这里，RoleDAO和RoleManager不是就功能重复了么，如果按照上面的方案RoleManager直接调用PersistenceManager来处理不就可以了？ 
+      <BR><BR>初学web架构设计，对于DAO还不了解，望赐教 </DIV>
+      <DIV id=topic_copyright>声明：JavaEye文章版权属于作者，受法律保护。没有作者书面许可不得转载。 </DIV>
+      <DIV id=forum_recommended_f5><SPAN>推荐链接</SPAN>
+      <UL></UL></DIV>
+      <DIV id=forum_recommended_f0>
+      <SCRIPT type=text/javascript><!--
+google_ad_client = "pub-4348265167276910";
+/* 728x90, 论坛文章 */
+google_ad_slot = "9994960111";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</SCRIPT>
+
+      <SCRIPT type=text/javascript 
+      src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/show_ads.js">
+</SCRIPT>
+      </DIV></TD></TR>
+  <TR>
+    <TD class=postauthor><A 
+    href="http://www.javaeye.com/topic/20216#">返回顶楼</A></TD>
+    <TD class=postcontent>
+      <DIV class=icons><A class=icon_www title=浏览作者的博客 
+      href="http://jeffreyhsu.javaeye.com/">&nbsp;</A> <A class=icon_profile 
+      title=浏览作者资料 href="http://jeffreyhsu.javaeye.com/blog/profile">&nbsp;</A> 
+      <A class=icon_pm title=发送站内短信 
+      href="http://app.javaeye.com/messages/new?message%5Breceiver_name%5D=JeffreyHsu">&nbsp;</A> 
+      <A class=icon_guestbook title=给作者留言 
+      href="http://jeffreyhsu.javaeye.com/blog/guest_book">&nbsp;</A> <A 
+      class=icon_rss title=关注作者 
+      onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;f.submit();return false;" 
+      href="http://app.javaeye.com/feed?subscription%5Bsubscribed_user_name%5D=JeffreyHsu">&nbsp;</A> 
+      </DIV></TD></TR>
+  <TR class=sep2>
+    <TD colSpan=2></TD></TR>
+  <TR id=122367>
+    <TD class=postauthor>
+      <UL>
+        <LI class=name>dwangel 
+        <LI>等级: <IMG title=五星会员 alt=五星会员 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/star5.gif"> 
+
+        <LI><A href="http://dwangel.javaeye.com/" target=_blank><IMG class=logo 
+        title="dwangel的博客: dwangel" alt=dwangel的博客 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/user-logo.gif"></A> 
+
+        <LI>文章: 523 
+        <LI>积分: 690 
+        <LI><IMG 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/offline.gif"> 
+        </LI></UL></TD>
+    <TD class=postcontent>
+      <DIV class=postactions>
+      <DIV class=description>&nbsp;&nbsp; 发表时间：2006-05-01&nbsp;&nbsp; </DIV>
+      <DIV class=links></DIV></DIV>
+      <DIV class="postbody clearfix">可能是为了在dao不包含transaction， 
+      <BR>而把transaction放到service层。 <BR>而service层可以组合不同的DAO。 </DIV></TD></TR>
+  <TR>
+    <TD class=postauthor><A 
+    href="http://www.javaeye.com/topic/20216#">返回顶楼</A></TD>
+    <TD class=postcontent>
+      <DIV class=icons><A class=icon_www title=浏览作者的博客 
+      href="http://dwangel.javaeye.com/">&nbsp;</A> <A class=icon_profile 
+      title=浏览作者资料 href="http://dwangel.javaeye.com/blog/profile">&nbsp;</A> <A 
+      class=icon_pm title=发送站内短信 
+      href="http://app.javaeye.com/messages/new?message%5Breceiver_name%5D=dwangel">&nbsp;</A> 
+      <A class=icon_guestbook title=给作者留言 
+      href="http://dwangel.javaeye.com/blog/guest_book">&nbsp;</A> <A 
+      class=icon_rss title=关注作者 
+      onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;f.submit();return false;" 
+      href="http://app.javaeye.com/feed?subscription%5Bsubscribed_user_name%5D=dwangel">&nbsp;</A> 
+      <A title=dwangel回帖:讨论：用DAO模式有什么好处？ 
+      href="http://www.javaeye.com/topic/20216#122367">回帖地址</A> </DIV>
+      <DIV id=post_rate_box_122367 class=post_rate_box><A class=good title=好 
+      onclick="return false;" href="http://www.javaeye.com/topic/20216#">0</A> 
+      <A class=hidden title=差 onclick="return false;" 
+      href="http://www.javaeye.com/topic/20216#">0</A> 请登录后投票</DIV></TD></TR>
+  <TR class=sep2>
+    <TD colSpan=2></TD></TR>
+  <TR id=122551>
+    <TD class=postauthor>
+      <UL>
+        <LI class=name>somebody 
+        <LI>等级: <IMG title=二星会员 alt=二星会员 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/star2.gif"> 
+
+        <LI><A href="http://somebody.javaeye.com/" target=_blank><IMG class=logo 
+        title="somebody的博客: somebody" alt=somebody的博客 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/3219cd1e-bc21-35c8-81b4-6051f0f15903.jpg"></A> 
+
+        <LI>文章: 61 
+        <LI>积分: 152 
+        <LI>来自: 上海 
+        <LI><IMG 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/offline.gif"> 
+        </LI></UL></TD>
+    <TD class=postcontent>
+      <DIV class=postactions>
+      <DIV class=description>&nbsp;&nbsp; 发表时间：2006-05-07&nbsp;&nbsp; </DIV>
+      <DIV class=links></DIV></DIV>
+      <DIV 
+      class="postbody clearfix">在这种简单的情况下，可以像搂住所说的那样，把Dao和service合并到一起。在实际项目中可能会碰到那种业务非常复杂的情况，那样你就会体会到吧Dao和service分离的作用了。 
+      </DIV></TD></TR>
+  <TR>
+    <TD class=postauthor><A 
+    href="http://www.javaeye.com/topic/20216#">返回顶楼</A></TD>
+    <TD class=postcontent>
+      <DIV class=icons><A class=icon_www title=浏览作者的博客 
+      href="http://somebody.javaeye.com/">&nbsp;</A> <A class=icon_profile 
+      title=浏览作者资料 href="http://somebody.javaeye.com/blog/profile">&nbsp;</A> <A 
+      class=icon_pm title=发送站内短信 
+      href="http://app.javaeye.com/messages/new?message%5Breceiver_name%5D=somebody">&nbsp;</A> 
+      <A class=icon_guestbook title=给作者留言 
+      href="http://somebody.javaeye.com/blog/guest_book">&nbsp;</A> <A 
+      class=icon_rss title=关注作者 
+      onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;f.submit();return false;" 
+      href="http://app.javaeye.com/feed?subscription%5Bsubscribed_user_name%5D=somebody">&nbsp;</A> 
+      <A title=somebody回帖:讨论：用DAO模式有什么好处？ 
+      href="http://www.javaeye.com/topic/20216#122551">回帖地址</A> </DIV>
+      <DIV id=post_rate_box_122551 class=post_rate_box><A class=good title=好 
+      onclick="return false;" href="http://www.javaeye.com/topic/20216#">0</A> 
+      <A class=hidden title=差 onclick="return false;" 
+      href="http://www.javaeye.com/topic/20216#">0</A> 请登录后投票</DIV></TD></TR>
+  <TR class=sep2>
+    <TD colSpan=2></TD></TR>
+  <TR id=122598>
+    <TD class=postauthor>
+      <UL>
+        <LI class=name>srdrm 
+        <LI>等级: 初级会员 
+        <LI><A href="http://srdrm.javaeye.com/" target=_blank><IMG class=logo 
+        title="srdrm的博客: srdrm" alt=srdrm的博客 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/de4c62a4-ada1-472f-bd6e-d5df83395b91.gif"></A> 
+
+        <LI>文章: 198 
+        <LI>积分: 20 
+        <LI><IMG 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/offline.gif"> 
+        </LI></UL></TD>
+    <TD class=postcontent>
+      <DIV class=postactions>
+      <DIV class=description>&nbsp;&nbsp; 发表时间：2006-05-08&nbsp;&nbsp; </DIV>
+      <DIV class=links></DIV></DIV>
+      <DIV class="postbody clearfix">我也是觉得, 这是为了简化复杂系统的开发. 更细的再分出一层. 复杂的系统, 
+      一个操作可能涉及好几个 table,&nbsp; 因此有必要再细分出一个与业务逻辑无关的数据库层, "与业务逻辑无关的数据库层" 是我乱起的名字, 
+      嘻嘻. 新手请大家多指教 </DIV></TD></TR>
+  <TR>
+    <TD class=postauthor><A 
+    href="http://www.javaeye.com/topic/20216#">返回顶楼</A></TD>
+    <TD class=postcontent>
+      <DIV class=icons><A class=icon_www title=浏览作者的博客 
+      href="http://srdrm.javaeye.com/">&nbsp;</A> <A class=icon_profile 
+      title=浏览作者资料 href="http://srdrm.javaeye.com/blog/profile">&nbsp;</A> <A 
+      class=icon_pm title=发送站内短信 
+      href="http://app.javaeye.com/messages/new?message%5Breceiver_name%5D=srdrm">&nbsp;</A> 
+      <A class=icon_guestbook title=给作者留言 
+      href="http://srdrm.javaeye.com/blog/guest_book">&nbsp;</A> <A 
+      class=icon_rss title=关注作者 
+      onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;f.submit();return false;" 
+      href="http://app.javaeye.com/feed?subscription%5Bsubscribed_user_name%5D=srdrm">&nbsp;</A> 
+      <A title=srdrm回帖:讨论：用DAO模式有什么好处？ 
+      href="http://www.javaeye.com/topic/20216#122598">回帖地址</A> </DIV>
+      <DIV id=post_rate_box_122598 class=post_rate_box><A class=good title=好 
+      onclick="return false;" href="http://www.javaeye.com/topic/20216#">0</A> 
+      <A class=hidden title=差 onclick="return false;" 
+      href="http://www.javaeye.com/topic/20216#">0</A> 请登录后投票</DIV></TD></TR>
+  <TR class=sep2>
+    <TD colSpan=2></TD></TR>
+  <TR id=122625>
+    <TD class=postauthor>
+      <UL>
+        <LI class=name>blueoxygen 
+        <LI>等级: <IMG title=四星会员 alt=四星会员 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/star4.gif"> 
+
+        <LI><A href="http://sap.javaeye.com/" target=_blank><IMG class=logo 
+        title="blueoxygen的博客: 囧囧有神的SAP Basis&amp;NetWeaver顾问" alt=blueoxygen的博客 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/25c7f2a3-9f7b-4e32-a635-c45bf6531475.gif"></A> 
+
+        <LI>文章: 707 
+        <LI>积分: 449 
+        <LI><IMG 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/offline.gif"> 
+        </LI></UL></TD>
+    <TD class=postcontent>
+      <DIV class=postactions>
+      <DIV class=description>&nbsp;&nbsp; 发表时间：2006-05-08&nbsp;&nbsp; </DIV>
+      <DIV class=links></DIV></DIV>
+      <DIV class="postbody clearfix">你这里的manager提供的服务无非就是role的CRUD 
+      当然就会有这种疑问了。难道你没写过一个方法要操作好多次数据库，操作好多实体的情况么？ </DIV></TD></TR>
+  <TR>
+    <TD class=postauthor><A 
+    href="http://www.javaeye.com/topic/20216#">返回顶楼</A></TD>
+    <TD class=postcontent>
+      <DIV class=icons><A class=icon_www title=浏览作者的博客 
+      href="http://sap.javaeye.com/">&nbsp;</A> <A class=icon_profile 
+      title=浏览作者资料 href="http://sap.javaeye.com/blog/profile">&nbsp;</A> <A 
+      class=icon_pm title=发送站内短信 
+      href="http://app.javaeye.com/messages/new?message%5Breceiver_name%5D=blueoxygen">&nbsp;</A> 
+      <A class=icon_guestbook title=给作者留言 
+      href="http://sap.javaeye.com/blog/guest_book">&nbsp;</A> <A class=icon_rss 
+      title=关注作者 
+      onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;f.submit();return false;" 
+      href="http://app.javaeye.com/feed?subscription%5Bsubscribed_user_name%5D=blueoxygen">&nbsp;</A> 
+      <A title=blueoxygen回帖:讨论：用DAO模式有什么好处？ 
+      href="http://www.javaeye.com/topic/20216#122625">回帖地址</A> </DIV>
+      <DIV id=post_rate_box_122625 class=post_rate_box><A class=good title=好 
+      onclick="return false;" href="http://www.javaeye.com/topic/20216#">0</A> 
+      <A class=hidden title=差 onclick="return false;" 
+      href="http://www.javaeye.com/topic/20216#">0</A> 请登录后投票</DIV></TD></TR>
+  <TR class=sep2>
+    <TD colSpan=2></TD></TR>
+  <TR id=122689>
+    <TD class=postauthor>
+      <UL>
+        <LI class=name>fishermen 
+        <LI>等级: 初级会员 
+        <LI><A href="http://fishermen.javaeye.com/" target=_blank><IMG 
+        class=logo title="fishermen的博客: fishermen" alt=fishermen的博客 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/4e0f185a-5ecf-4196-9885-3e6ea95de9a0.jpg"></A> 
+
+        <LI>文章: 18 
+        <LI>积分: 75 
+        <LI><IMG 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/offline.gif"> 
+        </LI></UL></TD>
+    <TD class=postcontent>
+      <DIV class=postactions>
+      <DIV class=description>&nbsp;&nbsp; 发表时间：2006-05-09&nbsp;&nbsp; </DIV>
+      <DIV class=links></DIV></DIV>
+      <DIV class="postbody clearfix">组合使用不同的dao <BR>而且可以进行事务处理，统一提交、回滚等 
+  </DIV></TD></TR>
+  <TR>
+    <TD class=postauthor><A 
+    href="http://www.javaeye.com/topic/20216#">返回顶楼</A></TD>
+    <TD class=postcontent>
+      <DIV class=icons><A class=icon_www title=浏览作者的博客 
+      href="http://fishermen.javaeye.com/">&nbsp;</A> <A class=icon_profile 
+      title=浏览作者资料 href="http://fishermen.javaeye.com/blog/profile">&nbsp;</A> 
+      <A class=icon_pm title=发送站内短信 
+      href="http://app.javaeye.com/messages/new?message%5Breceiver_name%5D=fishermen">&nbsp;</A> 
+      <A class=icon_guestbook title=给作者留言 
+      href="http://fishermen.javaeye.com/blog/guest_book">&nbsp;</A> <A 
+      class=icon_rss title=关注作者 
+      onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;f.submit();return false;" 
+      href="http://app.javaeye.com/feed?subscription%5Bsubscribed_user_name%5D=fishermen">&nbsp;</A> 
+      <A title=fishermen回帖:讨论：用DAO模式有什么好处？ 
+      href="http://www.javaeye.com/topic/20216#122689">回帖地址</A> </DIV>
+      <DIV id=post_rate_box_122689 class=post_rate_box><A class=good title=好 
+      onclick="return false;" href="http://www.javaeye.com/topic/20216#">0</A> 
+      <A class=hidden title=差 onclick="return false;" 
+      href="http://www.javaeye.com/topic/20216#">0</A> 请登录后投票</DIV></TD></TR>
+  <TR class=sep2>
+    <TD colSpan=2></TD></TR>
+  <TR id=123096>
+    <TD class=postauthor>
+      <UL>
+        <LI class=name>zhumeng_1980 
+        <LI>等级: 初级会员 
+        <LI><A href="http://zhumeng-1980.javaeye.com/" target=_blank><IMG 
+        class=logo title="zhumeng_1980的博客: zhumeng_1980" alt=zhumeng_1980的博客 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/user-logo.gif"></A> 
+
+        <LI>文章: 3 
+        <LI>积分: 86 
+        <LI><IMG 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/offline.gif"> 
+        </LI></UL></TD>
+    <TD class=postcontent>
+      <DIV class=postactions>
+      <DIV class=description>&nbsp;&nbsp; 发表时间：2006-05-12&nbsp;&nbsp; </DIV>
+      <DIV class=links></DIV></DIV>
+      <DIV class="postbody clearfix">DAO(Database Access 
+      Object),顾名思义就是数据库访问接口,也就是和数据库打交道操作对象.而这些操作往往可以从系统的业务逻辑中独立出来,从而使系统中的数据库操作变得统一和简单化(相对于数据库具体操作混合业务逻辑操作),而且也可以使得系统在和数据库交互出错时,更快的定位问题. 
+      <BR>总而言之,我觉得,使用DAO的目的是,将数据控制层和业务逻辑控制层分离开,这样不仅更有利于项目开发时的功能划分和工作分配(负责数据层的人员只注重数据操作,负责业务逻辑控制的开发人员只关注业务逻辑,使得各人的分工简化明晰),在项目维护时也更容易定位和解决问题. 
+      </DIV></TD></TR>
+  <TR>
+    <TD class=postauthor><A 
+    href="http://www.javaeye.com/topic/20216#">返回顶楼</A></TD>
+    <TD class=postcontent>
+      <DIV class=icons><A class=icon_www title=浏览作者的博客 
+      href="http://zhumeng-1980.javaeye.com/">&nbsp;</A> <A class=icon_profile 
+      title=浏览作者资料 
+      href="http://zhumeng-1980.javaeye.com/blog/profile">&nbsp;</A> <A 
+      class=icon_pm title=发送站内短信 
+      href="http://app.javaeye.com/messages/new?message%5Breceiver_name%5D=zhumeng_1980">&nbsp;</A> 
+      <A class=icon_guestbook title=给作者留言 
+      href="http://zhumeng-1980.javaeye.com/blog/guest_book">&nbsp;</A> <A 
+      class=icon_rss title=关注作者 
+      onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;f.submit();return false;" 
+      href="http://app.javaeye.com/feed?subscription%5Bsubscribed_user_name%5D=zhumeng_1980">&nbsp;</A> 
+      <A title=zhumeng_1980回帖:讨论：用DAO模式有什么好处？ 
+      href="http://www.javaeye.com/topic/20216#123096">回帖地址</A> </DIV>
+      <DIV id=post_rate_box_123096 class=post_rate_box><A class=good title=好 
+      onclick="return false;" href="http://www.javaeye.com/topic/20216#">1</A> 
+      <A class=hidden title=差 onclick="return false;" 
+      href="http://www.javaeye.com/topic/20216#">0</A> 请登录后投票</DIV></TD></TR>
+  <TR class=sep2>
+    <TD colSpan=2></TD></TR>
+  <TR id=130554>
+    <TD class=postauthor>
+      <UL>
+        <LI class=name>yangwudong 
+        <LI>等级: 初级会员 
+        <LI><A href="http://yangwudong.javaeye.com/" target=_blank><IMG 
+        class=logo title="yangwudong的博客: yangwudong" alt=yangwudong的博客 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/091ac7ff-2ff4-3084-be57-7fbfaebc7ab8.jpg"></A> 
+
+        <LI>文章: 11 
+        <LI>积分: 94 
+        <LI>来自: 杭州 
+        <LI><IMG 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/offline.gif"> 
+        </LI></UL></TD>
+    <TD class=postcontent>
+      <DIV class=postactions>
+      <DIV class=description>&nbsp;&nbsp; 发表时间：2006-08-02&nbsp;&nbsp; </DIV>
+      <DIV class=links></DIV></DIV>
+      <DIV 
+      class="postbody clearfix">简单的说，那个东西就是一个插座，你只要更给录音机供电，他都是用同样的方法去产生声音的，不是你用电厂给你的电和用自己发的电就不一样了。 
+      <BR>换句话说，就是，换了产生数据的实现，不用改逻辑，照样可以使用，这个应该是接口的一大好处吧！我理解的不好，请大家指教！ 
+</DIV></TD></TR>
+  <TR>
+    <TD class=postauthor><A 
+    href="http://www.javaeye.com/topic/20216#">返回顶楼</A></TD>
+    <TD class=postcontent>
+      <DIV class=icons><A class=icon_www title=浏览作者的博客 
+      href="http://yangwudong.javaeye.com/">&nbsp;</A> <A class=icon_profile 
+      title=浏览作者资料 href="http://yangwudong.javaeye.com/blog/profile">&nbsp;</A> 
+      <A class=icon_pm title=发送站内短信 
+      href="http://app.javaeye.com/messages/new?message%5Breceiver_name%5D=yangwudong">&nbsp;</A> 
+      <A class=icon_guestbook title=给作者留言 
+      href="http://yangwudong.javaeye.com/blog/guest_book">&nbsp;</A> <A 
+      class=icon_rss title=关注作者 
+      onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;f.submit();return false;" 
+      href="http://app.javaeye.com/feed?subscription%5Bsubscribed_user_name%5D=yangwudong">&nbsp;</A> 
+      <A title=yangwudong回帖:讨论：用DAO模式有什么好处？ 
+      href="http://www.javaeye.com/topic/20216#130554">回帖地址</A> </DIV>
+      <DIV id=post_rate_box_130554 class=post_rate_box><A class=good title=好 
+      onclick="return false;" href="http://www.javaeye.com/topic/20216#">0</A> 
+      <A class=hidden title=差 onclick="return false;" 
+      href="http://www.javaeye.com/topic/20216#">0</A> 请登录后投票</DIV></TD></TR>
+  <TR class=sep2>
+    <TD colSpan=2></TD></TR>
+  <TR id=131303>
+    <TD class=postauthor>
+      <UL>
+        <LI class=name>asathor 
+        <LI>等级: 初级会员 
+        <LI><A href="http://asathor.javaeye.com/" target=_blank><IMG class=logo 
+        title="asathor的博客: asathor" alt=asathor的博客 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/user-logo.gif"></A> 
+
+        <LI>文章: 2 
+        <LI>积分: 84 
+        <LI><IMG 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/offline.gif"> 
+        </LI></UL></TD>
+    <TD class=postcontent>
+      <DIV class=postactions>
+      <DIV class=description>&nbsp;&nbsp; 发表时间：2006-08-08&nbsp;&nbsp; </DIV>
+      <DIV class=links></DIV></DIV>
+      <DIV class="postbody clearfix">
+      <DIV class=quote_title>yangwudong 写道</DIV>
+      <DIV 
+      class=quote_div>简单的说，那个东西就是一个插座，你只要更给录音机供电，他都是用同样的方法去产生声音的，不是你用电厂给你的电和用自己发的电就不一样了。 
+      <BR>换句话说，就是，换了产生数据的实现，不用改逻辑，照样可以使用，这个应该是接口的一大好处吧！我理解的不好，请大家指教！</DIV><BR><BR>但產生數據的實現會影響DAO 
+      的設計, 例如直接用JDBC或IBatis 實現的DAO, <BR>比用Hibernate 或JDO 的, 前者粒度會比較細, 後者會比較粗, 
+      若設計不當, 反而會浪費了Hibernate 或JDO 的強大功能 </DIV></TD></TR>
+  <TR>
+    <TD class=postauthor><A 
+    href="http://www.javaeye.com/topic/20216#">返回顶楼</A></TD>
+    <TD class=postcontent>
+      <DIV class=icons><A class=icon_www title=浏览作者的博客 
+      href="http://asathor.javaeye.com/">&nbsp;</A> <A class=icon_profile 
+      title=浏览作者资料 href="http://asathor.javaeye.com/blog/profile">&nbsp;</A> <A 
+      class=icon_pm title=发送站内短信 
+      href="http://app.javaeye.com/messages/new?message%5Breceiver_name%5D=asathor">&nbsp;</A> 
+      <A class=icon_guestbook title=给作者留言 
+      href="http://asathor.javaeye.com/blog/guest_book">&nbsp;</A> <A 
+      class=icon_rss title=关注作者 
+      onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;f.submit();return false;" 
+      href="http://app.javaeye.com/feed?subscription%5Bsubscribed_user_name%5D=asathor">&nbsp;</A> 
+      <A title=asathor回帖:讨论：用DAO模式有什么好处？ 
+      href="http://www.javaeye.com/topic/20216#131303">回帖地址</A> </DIV>
+      <DIV id=post_rate_box_131303 class=post_rate_box><A class=good title=好 
+      onclick="return false;" href="http://www.javaeye.com/topic/20216#">0</A> 
+      <A class=hidden title=差 onclick="return false;" 
+      href="http://www.javaeye.com/topic/20216#">0</A> 请登录后投票</DIV></TD></TR>
+  <TR class=sep2>
+    <TD colSpan=2></TD></TR>
+  <TR id=132137>
+    <TD class=postauthor>
+      <UL>
+        <LI class=name>heaven 
+        <LI>等级: <IMG title=四星会员 alt=四星会员 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/star4.gif"> 
+
+        <LI><A href="http://heaven.javaeye.com/" target=_blank><IMG class=logo 
+        title="heaven的博客: heaven" alt=heaven的博客 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/332b5b2f-aa54-41fb-8f07-2a5fc9f0758e.gif"></A> 
+
+        <LI>文章: 55 
+        <LI>积分: 403 
+        <LI><IMG 
+        src="讨论：用DAO模式有什么好处？%20-%20DAO%20-%20Java%20-%20JavaEye论坛_files/offline.gif"> 
+        </LI></UL></TD>
+    <TD class=postcontent>
+      <DIV class=postactions>
+      <DIV class=description>&nbsp;&nbsp; 发表时间：2006-08-14&nbsp;&nbsp; </DIV>
+      <DIV class=links></DIV></DIV>
+      <DIV class="postbody clearfix">就像独立的显卡，当然主板也可以集成... </DIV></TD></TR>
+  <TR>
+    <TD class=postauthor><A 
+    href="http://www.javaeye.com/topic/20216#">返回顶楼</A></TD>
+    <TD class=postcontent>
+      <DIV class=icons><A class=icon_www title=浏览作者的博客 
+      href="http://heaven.javaeye.com/">&nbsp;</A> <A class=icon_profile 
+      title=浏览作者资料 href="http://heaven.javaeye.com/blog/profile">&nbsp;</A> <A 
+      class=icon_pm title=发送站内短信 
+      href="http://app.javaeye.com/messages/new?message%5Breceiver_name%5D=heaven">&nbsp;</A> 
+      <A class=icon_guestbook title=给作者留言 
+      href="http://heaven.javaeye.com/blog/guest_book">&nbsp;</A> <A 
+      class=icon_rss title=关注作者 
+      onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;f.submit();return false;" 
+      href="http://app.javaeye.com/feed?subscription%5Bsubscribed_user_name%5D=heaven">&nbsp;</A> 
+      <A title=heaven回帖:讨论：用DAO模式有什么好处？ 
+      href="http://www.javaeye.com/topic/20216#132137">回帖地址</A> </DIV>
+      <DIV id=post_rate_box_132137 class=post_rate_box><A class=good title=好 
+      onclick="return false;" href="http://www.javaeye.com/topic/20216#">1</A> 
+      <A class=hidden title=差 onclick="return false;" 
+      href="http://www.javaeye.com/topic/20216#">0</A> 请登录后投票</DIV></TD></TR>
+  <TR class=sep2>
+    <TD colSpan=2></TD></TR></TBODY></TABLE>
+<DIV class=actions>
+<DIV class=buttons></DIV>
+<DIV class=wrapper>
+<DIV class=pagination><SPAN class="disabled prev_page">« 上一页</SPAN> <SPAN 
+class=current>1</SPAN> <A href="http://www.javaeye.com/topic/20216?page=2" 
+rel=next>2</A> <A href="http://www.javaeye.com/topic/20216?page=3">3</A> <A 
+href="http://www.javaeye.com/topic/20216?page=4">4</A> <A 
+href="http://www.javaeye.com/topic/20216?page=5">5</A> <A class=next_page 
+href="http://www.javaeye.com/topic/20216?page=2" rel=next>下一页 
+»</A></DIV></DIV></DIV>
+<DIV>
+<DIV class=crumbs><A href="http://www.javaeye.com/forums">论坛首页</A> <SPAN 
+class=arrow>→</SPAN> <A 
+href="http://www.javaeye.com/forums/board/Java">Java编程和Java企业应用版</A> <SPAN 
+class=arrow>→</SPAN> <A href="http://www.javaeye.com/forums/tag/DAO">DAO</A> 
+<BR><BR>跳转论坛:<SELECT id=forum_urlname 
+onchange="window.location='/forums/board/'+this.value" 
+  name=forum[urlname]><OPTION selected value=Java>Java编程和Java企业应用</OPTION> 
+  <OPTION value=web>Web前端技术</OPTION> <OPTION value=mobile>移动编程和手机应用开发</OPTION> 
+  <OPTION value=cpp>C/C++编程</OPTION> <OPTION value=Ruby>Ruby编程</OPTION> <OPTION 
+  value=Python>Python编程</OPTION> <OPTION value=PHP>PHP编程</OPTION> <OPTION 
+  value=Flash>Flash编程和RIA</OPTION> <OPTION value=dotnet>Microsoft .Net</OPTION> 
+  <OPTION value=Tech>综合技术</OPTION> <OPTION value=develop>软件开发和项目管理</OPTION> 
+  <OPTION value=Industry>行业应用</OPTION> <OPTION value=New>入门讨论</OPTION> <OPTION 
+  value=Job>招聘求职</OPTION> <OPTION value=Life>海阔天空</OPTION></SELECT> 
+<UL 
+style="BORDER-BOTTOM: #f8aa4f 1px solid; BORDER-LEFT: #f8aa4f 1px solid; PADDING-BOTTOM: 7px; LIST-STYLE-TYPE: none; MARGIN-TOP: 5px; PADDING-LEFT: 0px; WIDTH: 400px; PADDING-RIGHT: 0px; HEIGHT: 110px; OVERFLOW: hidden; BORDER-TOP: #f8aa4f 1px solid; BORDER-RIGHT: #f8aa4f 1px solid; PADDING-TOP: 7px" 
+id=recommended_jobs onmousemove="marqueeing = false;" 
+onmouseout="marqueeing = true;">
+  <LI 
+  style="PADDING-LEFT: 20px; BACKGROUND: url(/images/board-tab-list.png) no-repeat left center; MARGIN-LEFT: 15px"><A 
+  title="江苏:百阅诚聘BY002-201 应用工程师" href="http://www.javaeye.com/jobs/480" 
+  target=_blank>江苏: 百阅诚聘BY002-201 应用工程师</A> 
+  <LI 
+  style="PADDING-LEFT: 20px; BACKGROUND: url(/images/board-tab-list.png) no-repeat left center; MARGIN-LEFT: 15px"><A 
+  title="安徽:Cisco WebEx诚聘Java高级架构师" href="http://www.javaeye.com/jobs/485" 
+  target=_blank>安徽: Cisco WebEx诚聘Java高级架构师</A> </LI></UL>
+<SCRIPT type=text/javascript>
+        var marqueeing = true;
+        function marquee(){
+          if(marqueeing) {
+            var container=document.getElementById("recommended_jobs");
+            container.appendChild(container.firstChild);
+          }
+        }
+        setInterval("marquee()", 4000);
+      </SCRIPT>
+</DIV></DIV>
+<DIV style="DISPLAY: none">
+<FORM id=post_rate_form 
+onsubmit="new Ajax.Request('/posts/rate', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;" 
+method=post action=/posts/rate><INPUT id=post_rate_id type=hidden name=id> 
+<INPUT id=post_rate_type type=hidden name=type> </FORM></DIV>
+<SCRIPT type=text/javascript>
+  dp.SyntaxHighlighter.HighlightAll('code', true, true);
+
+  fix_image_size($$('div.postbody img'), 760);
+
+  function rate_post(id, type) {
+    Element.update('post_rate_box_' + id, '提交中...');
+    new Ajax.Request('/posts/rate', {asynchronous:true, evalScripts:true, parameters:{"id":id, "type":type}});
+  }
+
+  function rate_topic(type) {
+    Element.update('topic_rate_box', '提交中...');
+    new Ajax.Request('/topics/rate', {asynchronous:true, evalScripts:true, parameters:{"id":20216, "type":type}});
+  }
+</SCRIPT>
+</DIV>
+<DIV id=nav>
+<DIV class=wrapper>
+<UL>
+  <LI><A href="http://www.javaeye.com/">首页</A> </LI>
+  <LI><A href="http://www.javaeye.com/news">新闻</A> </LI>
+  <LI><A class=selected href="http://www.javaeye.com/forums">论坛</A> </LI>
+  <LI><A href="http://www.javaeye.com/ask">问答</A> </LI>
+  <LI><A href="http://www.javaeye.com/wiki">专栏</A> </LI>
+  <LI><A href="http://www.javaeye.com/blogs">博客</A> </LI>
+  <LI><A href="http://www.javaeye.com/groups">圈子</A> </LI>
+  <LI><A href="http://www.javaeye.com/job">招聘</A> </LI>
+  <LI><A href="http://www.javaeye.com/index/service">服务</A> </LI>
+  <LI class=last><A href="http://www.javaeye.com/google_search">搜索</A> 
+</LI></UL></DIV></DIV>
+<DIV id=channel_nav>
+<UL>
+  <LI><A href="http://java.javaeye.com/">Java</A> </LI>
+  <LI><A href="http://webapp.javaeye.com/">Web</A> </LI>
+  <LI><A href="http://ruby.javaeye.com/">Ruby</A> </LI>
+  <LI><A href="http://python.javaeye.com/">Python</A> </LI>
+  <LI><A href="http://agile.javaeye.com/">敏捷</A> </LI>
+  <LI><A href="http://mysql.javaeye.com/">MySQL</A> </LI>
+  <LI><A href="http://primeton.javaeye.com/">普元</A> </LI>
+  <LI><A href="http://dorado.javaeye.com/">Dorado</A> </LI>
+  <LI><A href="http://book.javaeye.com/">图书</A> </LI>
+  <LI class=last><A href="http://ftp.javaeye.com/public/msup/msd/index.html" 
+  target=_blank>MSUP开放日</A> </LI></UL></DIV></DIV>
+<DIV id=footer>
+<DIV id=site_nav>
+<UL>
+  <LI><A href="http://www.javaeye.com/index/service">广告服务</A> 
+  <LI><A href="http://webmaster.javaeye.com/">JavaEye黑板报</A> 
+  <LI><A href="http://www.javaeye.com/index/aboutus">关于我们</A> 
+  <LI><A href="http://www.javaeye.com/index/contactus">联系我们</A> 
+  <LI class=last><A href="http://www.javaeye.com/index/friend_links">友情链接</A> 
+  </LI></UL></DIV>
+<DIV id=copyright>© 2003-2010 JavaEye.com. 上海炯耐计算机软件有限公司版权所有 [ <A 
+href="http://www.miibeian.gov.cn/">沪ICP备05023328号</A> ] </DIV></DIV></DIV>
+<SCRIPT type=text/javascript>
+  document.write("<img src='http://stat.javaeye.com/?url="+ encodeURIComponent(document.location.href) + "&referrer=" + encodeURIComponent(document.referrer) + "&logged_in=no" + "' width='0' height='0' />");
+</SCRIPT>
+</BODY></HTML>

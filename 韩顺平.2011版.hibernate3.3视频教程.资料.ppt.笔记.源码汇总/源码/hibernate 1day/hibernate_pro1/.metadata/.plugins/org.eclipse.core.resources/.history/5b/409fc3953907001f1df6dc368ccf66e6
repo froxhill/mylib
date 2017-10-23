@@ -1,0 +1,33 @@
+/**
+ * 这是一个测试类
+ */
+package com.test;
+
+import org.hibernate.*;
+import org.hibernate.cfg.*;
+public class TestMain {
+
+	
+	public static void main(String []args)
+	{
+		//对数据持久层操作
+		//该类主要是用于读取hibernate.cfg.xml
+		Configuration cf=new Configuration().configure();
+		//创建一个会话工厂.
+		SessionFactory sf=cf.buildSessionFactory();
+		//创建Session(会话)<->Connection
+		Session s=sf.getCurrentSession();
+		//开始事务
+		Transaction ts=s.beginTransaction();
+		//加入一个对象(记录)
+		Users u=new Users();
+		u.setName("顺平");
+		u.setAge(30);
+		u.setEmail("shunping@sohu.com");
+		u.setRegDate(new java.util.Date());
+		u.setSex("男");
+		s.save(u);//添加该对象到数据库
+		ts.commit();//提交事务
+		
+	}
+}

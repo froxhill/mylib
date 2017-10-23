@@ -1,0 +1,10 @@
+--创建表(users)-qq注册表
+
+create table users
+(userid number primary key,
+ userName varchar2(30) not null,
+ sex   char(2),
+ age number ,
+ email varchar2(30),
+ regDate date
+ )
